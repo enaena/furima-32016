@@ -51,6 +51,7 @@
 
 | Column        | Type       | Options           |
 | ------------- | ---------- | ----------------- |
+| postal_code   | string     | null: false       |
 | area_id       | integer    | null: false       |
 | municipality  | string     | null: false       |
 | house_number  | string     | null: false       |
