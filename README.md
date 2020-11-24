@@ -1,24 +1,61 @@
-# README
+## users
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| nickname        | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| last_name       | string | null: false |
+| first_name      | string | null: false |
+| last_name_kana  | string | null: false |
+| first_name_kana | string | null: false |
+| birth_year      | string | null: false |
+| birth_month     | string | null: false |
+| birth_day       | string | null: false |
 
-Things you may want to cover:
+### Association
+- has_many :items
+- has_many :purchases
 
-* Ruby version
 
-* System dependencies
+## items
 
-* Configuration
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| image           |            |                                |
+| nickname        | string     | null: false                    |
+| name            | string     | null: false                    |
+| text            | text       | null: false                    |
+| category        | string     | null: false                    |
+| condition       | string     | null: false                    |
+| burden          | string     | null: false                    |
+| area            | string     | null: false                    |
+| day             | string     | null: false                    |
+| price           | string     | null: false                    |
+| user_id         | references | null: false, foreign_key: true |
 
-* Database creation
+### Association
+- belongs_to :user
+- has_one :purchase
 
-* Database initialization
 
-* How to run the test suite
+## purchase
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| time            | string     | null: false                    |
+| user_id         | references | null: false, foreign_key: true |
+| item_id         | references | null: false, foreign_key: true |
 
-* Deployment instructions
+- belongs_to :item
+- has_one :address
 
-* ...
+
+## address
+
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| time            | string     | null: false                    |
+| user_id         | references | null: false, foreign_key: true |
+| item_id         | references | null: false, foreign_key: true |
+
